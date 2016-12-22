@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+        var var2="";
+        var operand ="";
+        var2 = prompt("Please input some mathematical expression having \n4 Airthmatic " +
+                "operation No validation on double operators");
+        getvalue(var2);
+        operand = "/";
+        do {
+            switch (operand) {
+                case "/":
+                    for (i = 0; i < exp1.length; i++) {
+                        if (exp1[i] === "/") {
+                            exp1.splice(i-1,3,parseFloat(exp1[i-1])/ parseFloat(exp1[i+1]));
+                            i--;
+                        }
+                    }alert(exp1);
+                    operand = "*";
+                    break;
+
+                case "*":
+                    for (i = 0; i < exp1.length; i++) {
+                        if (exp1[i] === "*") {
+                            exp1.splice(i-1,3,parseFloat(exp1[i-1]) * parseFloat(exp1[i+1]));
+                            i--;
+                        }
+                    }alert(exp1);
+                    operand = "-";
+                    break;
+
+                case "-":
+                    for (i = 0; i < exp1.length; i++) {
+                        if (exp1[i] === "-") {
+                            exp1.splice(i-1,3,parseFloat(exp1[i-1])- parseFloat(exp1[i+1]));
+                            i--;
+                        }
+                    }alert(exp1);
+                    operand="+";
+                    break;
+
+                case "+":
+                    for (i = 0; i < exp1.length; i++) {
+                        if (exp1[i] === "+" ) {
+                            exp1.splice(i-1,3,parseFloat(exp1[i-1])+parseFloat(exp1[i+1]));
+                            i--;
+                        }
+                    }alert(exp1);
+                    operand="";
+                    break;
+            }
+        }while (operand !== "");
+
+
+            // converts varaible into array
+            function getvalue(exp){
+                exp1 = exp.split(/[+-/*]/);
+                var m = 1;
+                for(i=0;i<exp.length;i++){
+                    if(exp[i] === "+"|| exp[i] === "-"|| exp[i] === "*"|| exp[i] === "/"){
+                        exp1.splice(m,0,exp[i]);
+                          m = m + 2;
+                    }
+                }
+                return exp1;
+            }
+
+    </script>
+</head>
+<body>
+</html>
